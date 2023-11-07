@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{mpc_industry}
+M.~G. Forbes, R.~S. Patwardhan, H.~Hamadah, and R.~B. Gopaluni, ``Model
+  predictive control in industry: Challenges and opportunities,'' {\em
+  IFAC-PapersOnLine}, vol.~48, no.~8, pp.~531--538, 2015.
+\newblock 9th IFAC Symposium on Advanced Control of Chemical Processes ADCHEM
+  2015.
+
+\bibitem{youm2023imitating}
+D.~Youm, H.~Jung, H.~Kim, J.~Hwangbo, H.-W. Park, and S.~Ha, ``Imitating and
+  finetuning model predictive control for robust and symmetric quadrupedal
+  locomotion,'' 2023.
+
+\end{thebibliography}

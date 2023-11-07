@@ -1,0 +1,71 @@
+@misc{drake,
+    author = "Russ Tedrake and the Drake Development Team",
+    title = "Drake: Model-based design and verification for robotics",
+    year = 2019,
+    url = "https://drake.mit.edu"
+}
+
+@book{manipulation,
+    title        = "Robotic Manipulation",
+    subtitle     = "Perception, Planning, and Control",
+    howpublished = "Course Notes for MIT 6.421",
+    author       = "Tedrake, Russ",
+    year         = 2023,
+    url          = "http://manipulation.mit.edu",
+}
+
+@article{NICODEMUS2022331,
+    title = {Physics-informed Neural Networks-based Model Predictive Control for Multi-link Manipulators},
+    journal = {IFAC-PapersOnLine},
+    volume = {55},
+    number = {20},
+    pages = {331-336},
+    year = {2022},
+    note = {10th Vienna International Conference on Mathematical Modelling MATHMOD 2022},
+    issn = {2405-8963},
+    doi = {https://doi.org/10.1016/j.ifacol.2022.09.117},
+    url = {https://www.sciencedirect.com/science/article/pii/S2405896322013118},
+    author = {Jonas Nicodemus and Jonas Kneifl and Jörg Fehr and Benjamin Unger},
+    keywords = {Physics-informed Machine Learning, Model Predictive Control, Surrogate Model, Mechanical System, Real-time Control},
+    abstract = {We discuss nonlinear model predictive control (MPC) for multi-body dynamics via physics-informed machine learning methods. In more detail, we use a physics-informed neural networks (PINNs)-based MPC to solve a tracking problem for a complex mechanical system, a multi-link manipulator. PINNs are a promising tool to approximate (partial) differential equations but are not suited for control tasks in their original form since they are not designed to handle variable control actions or variable initial values. We thus follow the strategy of Antonelo et al. (arXiv:2104.02556, 2021) by enhancing PINNs with adding control actions and initial conditions as additional network inputs. Subsequently, the high-dimensional input space is reduced via a sampling strategy and a zero-hold assumption. This strategy enables the controller design based on a PINN as an approximation of the underlying system dynamics. The additional benefit is that the sensitivities are easily computed via automatic differentiation, thus leading to efficient gradient-based algorithms for the underlying optimal control problem.}
+}
+
+@misc{youm2023imitating,
+    title={Imitating and Finetuning Model Predictive Control for Robust and Symmetric Quadrupedal Locomotion}, 
+    author={Donghoon Youm and Hyunyoung Jung and Hyeongjun Kim and Jemin Hwangbo and Hae-Won Park and Sehoon Ha},
+    year={2023},
+    eprint={2311.02304},
+    archivePrefix={arXiv},
+    primaryClass={cs.RO}
+}
+
+@article{mpc_original,
+    title = {Model predictive control: Theory and practice—A survey},
+    journal = {Automatica},
+    volume = {25},
+    number = {3},
+    pages = {335-348},
+    year = {1989},
+    issn = {0005-1098},
+    doi = {https://doi.org/10.1016/0005-1098(89)90002-2},
+    url = {https://www.sciencedirect.com/science/article/pii/0005109889900022},
+    author = {Carlos E. García and David M. Prett and Manfred Morari},
+    keywords = {Computer control, predictive control, process control, quadratic programming, (constrained control)},
+    abstract = {We refer to Model Predictive Control (MPC) as that family of controllers in which there is a direct use of an explicit and separately identifiable model. Control design methods based on the MPC concept have found wide acceptance in industrial applications and have been studied by academia. The reason for such popularity is the ability of MPC designs to yield high performance control systems capable of operating without expert intervention for long periods of time. In this paper the issues of importance that any control system should address are stated. MPC techniques are then reviewed in the light of these issues in order to point out their advantages in design and implementation. A number of design techniques emanating from MPC, namely Dynamic Matrix Control, Model Algorithmic Control, Inferential Control and Internal Model Control, are put in perspective with respect to each other and the relation to more traditional methods like Linear Quadratic Control is examined. The flexible constraint handling capabilities of MPC are shown to be a significant advantage in the context of the overall operating objectives of the process industries and the 1-, 2-, and ∞-norm formulations of the performance objective are discussed. The application of MPC to non-linear systems is examined and it is shown that its main attractions carry over. Finally, it is explained that though MPC is not inherently more or less robust than classical feedback, it can be adjusted more easily for robustness.}
+}
+
+@article{mpc_industry,
+title = {Model Predictive Control in Industry: Challenges and Opportunities},
+journal = {IFAC-PapersOnLine},
+volume = {48},
+number = {8},
+pages = {531-538},
+year = {2015},
+note = {9th IFAC Symposium on Advanced Control of Chemical Processes ADCHEM 2015},
+issn = {2405-8963},
+doi = {https://doi.org/10.1016/j.ifacol.2015.09.022},
+url = {https://www.sciencedirect.com/science/article/pii/S2405896315011039},
+author = {Michael G. Forbes and Rohit S. Patwardhan and Hamza Hamadah and R. Bhushan Gopaluni},
+keywords = {industrial control, process control, model-based control, predictive control, adaptive control, performance monitoring, control applications, human factors},
+abstract = {With decades of successful application of model predictive control (MPC) to industrial processes, practitioners are now focused on ease of commissioning, monitoring, and automation of maintenance. Many industries do not necessarily need better algorithms, but rather improved usability of existing technologies to allow a limited workforce of varying expertise to easily commission, use, and maintain these valued applications. Continuous performance monitoring, and automated model reidentification are being used as vendors work to deliver automated adaptive MPC. This paper examines industrial practice and emerging research trends towards providing sustained MPC performance.}
+}

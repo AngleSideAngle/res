@@ -1,19 +1,28 @@
-\documentclass{article}
+% pain
+\documentclass[11pt, titlepage]{article}
+
+
+% bibliography
+\usepackage[english]{babel}
+
+% useful packages
 \usepackage{amsmath}
-% \usepackage{amssymb} % extra math symbols
-% \usepackage{graphicx} % for placing figures
-% \usepackage{float} % For allowing graphics, and other objects, to float around the page
-% \usepackage{url}
-% \usepackage{hyperref}
-% \usepackage{enumitem} % for enumerating items
-% \usepackage{booktabs} % for tables
-% \usepackage{afterpage} % To force a picture (or float) to be on the next page.
-% \usepackage{caption} % Captions for pictures
-% \usepackage{subcaption} % combine 2 or more images into a group, each with its own caption
-% \usepackage{natbib} % The most common bibliography / references package
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \usepackage{listings}
 \usepackage{xcolor}
+
+% US paper
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% move page number
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\rfoot{\thepage}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -28,27 +37,37 @@
     stringstyle=\color{codepurple},
     basicstyle=\ttfamily\footnotesize,
     breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2
 }
 
 \lstset{style=mystyle}
 
-\title{Applications of Physics-informed Machine Learning for Automatic Adaptation to Varying Loads in Robotic Manipulators}
+\title{Simulating the Effectiveness of Physics-informed Machine Learning in Nonlinear Model Predictive Control for Robotic Manipulators}
 \author{Asa Paparo}
+\date{}
 
 \begin{document}
 
 \maketitle
 
-\section*{Introduction}
+\begin{abstract}
+
+Existing methods of robotic motion planning rely on numerical optimization to generate control actions within constraints. One of the most successful methods of control has been Model Predictive Control (MPC), which continuously replans a trajectory by solving an online optimization problem. This means that for high dimension dynamical systems, the computational cost of MPC can rapidly become prohibitive. Physics Informed Neural Networks (PINNs) allow for the data driven creation and solving of high dimensional differential equations. Existing research has made progress in combining them, but lacks rigor and code optimization. In this paper, I develop an efficient NMPC implementation that relies on a PINN to plan movements. Then, I set up and integrate the controller with a state of the art simulation to demonstrate its effectiveness for a 7 DoF robotic arm. This development presents a significant advancement for fields that employ mobile robotics, such as manufacturing and search/rescue.
+\end{abstract}
+
+\section{Introduction}
+
+A primary goal of the field of control theory is the efficient and constrained control of complex dynamical systems. A highly popular method of accomplishing this is \cite{mpc_industry}
+
+\cite{youm2023imitating}
 
     - us government priorities:
     - semi automated production
@@ -68,18 +87,14 @@
     - claim adaptive ml algorithms are needed
     - adaptive algorithms for smart manufacturing and adaptive ml
 
-    Current methods of robotic manipulation rely on predefined systems and control algorithms to function effectively. \cite{underactuated} This is a effective in most scenarios. However, it requires retuning for any change to the system. In consumer or high risk situations, it may be impractical to retune systems periodically to account for changes to the physical hardware. In this paper, I propose an alternative paradigm using physics-informed machine learning to correct for changes to the system on the fly.
+    % Current methods of robotic manipulation rely on predefined systems and control algorithms to function effectively. \cite{underactuated} This is a effective in most scenarios. However, it requires retuning for any change to the system. In consumer or high risk situations, it may be impractical to retune systems periodically to account for changes to the physical hardware. In this paper, I propose an alternative paradigm using physics-informed machine learning to correct for changes to the system on the fly.
 
-    The goal of this experiment is to examine the effectiveness <develop a new generation> of PINN (Physics Informed Neural Networks) in adapting the model of a system on the fly. This would enable the dynamic updating of control algorithms, given little prior knowledge about external conditions. For example, a manipulator should be able to grasp any arbitrary load and continue to plan trajectories effectively. In order to test this, I derive the governing equations of motion for a simple 2-DOF arm system and use drake \cite{drake} to run discrete simulations of MPC and trajectory planning for this arm. To verify my hypothesis, I modify the load attatched to the manipulator midway through the simulation and record the new effectiveness of controlling it.
+    % The goal of this experiment is to examine the effectiveness <develop a new generation> of PINN (Physics Informed Neural Networks) in adapting the model of a system on the fly. This would enable the dynamic updating of control algorithms, given little prior knowledge about external conditions. For example, a manipulator should be able to grasp any arbitrary load and continue to plan trajectories effectively. In order to test this, I derive the governing equations of motion for a simple 2-DOF arm system and use drake \cite{drake} to run discrete simulations of MPC and trajectory planning for this arm. To verify my hypothesis, I modify the load attatched to the manipulator midway through the simulation and record the new effectiveness of controlling it.
 
 
-    Robotic manipulation is an area of high importance as global manufacturing increasingly relies on automation to accomplish tasks that would typically be done by humans. Advances in machine learning promise to be as impactful as an industrial revolution, with potential to deliver widespread benefits to civilization.\cite{ai_on_industrial} Specifically, advances in robotic automation for manufacturing and medicine have potential to reshape their industries for the better. In the case of manufacturing, this allows for significantly greater productivity and worker safety. For medicine, surgical robots can accomplish tasks with more precision and safety than their human counterparts. \cite{2, 3, 4, 5} Automation in manufacturing is also critical for the prosperity and improvement of our modern society. For example, relevance in the global economy is viewed as core to American national security, and automation is an essential part in that \cite{6}. Such importance is further exacerbated by declining birth rates in industrialized nations, which means a smaller workforce to support a growing aging population \cite{tandf2}. Because of this, advances in robotic automation are essential in overcoming global challenges and improving the standard of living around the world.
+    % Robotic manipulation is an area of high importance as global manufacturing increasingly relies on automation to accomplish tasks that would typically be done by humans. Advances in machine learning promise to be as impactful as an industrial revolution, with potential to deliver widespread benefits to civilization.\cite{ai_on_industrial} Specifically, advances in robotic automation for manufacturing and medicine have potential to reshape their industries for the better. In the case of manufacturing, this allows for significantly greater productivity and worker safety. For medicine, surgical robots can accomplish tasks with more precision and safety than their human counterparts. \cite{2, 3, 4, 5} Automation in manufacturing is also critical for the prosperity and improvement of our modern society. For example, relevance in the global economy is viewed as core to American national security, and automation is an essential part in that \cite{6}. Such importance is further exacerbated by declining birth rates in industrialized nations, which means a smaller workforce to support a growing aging population \cite{tandf2}. Because of this, advances in robotic automation are essential in overcoming global challenges and improving the standard of living around the world.
     
-\begin{abstract}
-    Current methods of robotic manipulation rely on predefined systems and control algorithms to function effectively. \cite{underactuated} This is a effective in most scenarios. However, it requires retuning for any change to the system. In consumer or high risk situations, it may be impractical to retune systems periodically to account for changes to the physical hardware. In this paper, I propose an alternative paradigm using physics-informed machine learning to correct for changes to the system on the fly.
-    
-    The goal of this experiment is to examine the effectiveness of PINN (Physics Informed Neural Networks) in updating the model of a system on the fly. This would enable the dynamic updating of control algorithms, given little prior knowledge about external conditions. For example, a manipulator should be able to grasp any arbitrary load and continue to plan trajectories effectively. In order to test this, I derive the governing equations of motion for a simple 2-DOF arm system and use drake \cite{drake} to run discrete simulations of MPC and trajectory planning for this arm. To verify my hypothesis, I modify the load attatched to the manipulator midway through the simulation and record the new effectiveness of controlling it.
-\end{abstract}
+
 
 
     % Of all animals, humans are uniquely capable of powerful and precise throwing motions \cite{Roach}. This is enabled by several physical traits that allow for the efficient transfer of energy in overhand throw motions.
@@ -90,11 +105,15 @@
     analytical dynamics
 
 
-\section*{Methodology}
+\section{Methods}
 
-    \subsection*{Derivation}
+\subsection{Nonlinear Model Predictive Control (NMPC)}
+\subsection{Physics Informed Neural Networks (PINNs)}
+\subsection{Simulation}
 
-    To derive the dynamics for a double jointed arm system, I follow the derivation for an acrobot in Underactuated \cite{underactuated}. This is a fairly simple derivation using the euler-lagrange equation.
+    \subsection{Derivation}
+
+    % To derive the dynamics for a double jointed arm system, I follow the derivation for an acrobot in Underactuated \cite{underactuated}. This is a fairly simple derivation using the euler-lagrange equation.
     - talk about what was done in methodologies before me
     - 
     
@@ -118,11 +137,11 @@
         (I_2 + m_2 l_1 l_{c2} c_2) \ddot{q}_1 + I_2 \ddot{q}_2 + m_2 l_1 l_{c2}
         s_2 \dot{q}_1^2 + m_2 g l_{c2} s_{1+2} = \tau \end{gather}
 
-    \subsection*{Control}
+    \subsection{Control}
 
     To control this system, I use Model Predictive Control.
 
-    \subsection*{Optimization}
+    \subsection{Optimization}
 
     \begin{lstlisting}[language=Python]
         builder = DiagramBuilder()
@@ -149,52 +168,38 @@
             diagram.GetGraphvizString(max_depth=2))[0].create_svg()))
     \end{lstlisting}
 
-    \subsection*{Physics Informed Neural Network (PINN)}
+    \subsection{Physics Informed Neural Network (PINN)}
 
     
 
-\section*{Conclusions}
+\section{Discussion}
+\section{Conclusion}
 
-\begin{thebibliography}{unsrt}
-    \bibitem{ai_on_industrial}
-        https://arxiv.org/pdf/2011.03044.pdf
-    \bibitem{Roach}
-        Roach, N., Venkadesan, M., Rainbow, M. et al. Elastic energy storage in the shoulder and the evolution of high-speed throwing in Homo . Nature 498, 483–486 (2013). https://doi.org/10.1038/nature12267
-    \bibitem{2}
-        https://nvlpubs.nist.gov/nistpubs/eab/nist.eab.1.pdf
-    \bibitem{3}
-        https://www.tandfonline.com/doi/abs/10.1080/10408363.2018.1561640
-    \bibitem{4}
-        https://onlinelibrary.wiley.com/doi/abs/10.1002/rcs.408
-    \bibitem{5}
-        https://www.mckinsey.de/~/media/McKinsey/Business%20Functions/Operations/Our%20Insights/Human%20plus%20machine%20A%20new%20era%20of%20automation%20in%20manufacturing/Human-plus-machine-A-new-era-of-automation-in-manufacturing.pdf
-    \bibitem{6}
-        https://escholarship.org/content/qt0tw0h6kg/qt0tw0h6kg.pdf
+% \begin{thebibliography}{unsrt}
+%     \bibitem{ai_on_industrial}
+%         https://arxiv.org/pdf/2011.03044.pdf
+%     \bibitem{Roach}
+%         Roach, N., Venkadesan, M., Rainbow, M. et al. Elastic energy storage in the shoulder and the evolution of high-speed throwing in Homo . Nature 498, 483–486 (2013). https://doi.org/10.1038/nature12267
+%     \bibitem{2}
+%         https://nvlpubs.nist.gov/nistpubs/eab/nist.eab.1.pdf
+%     \bibitem{3}
+%         https://www.tandfonline.com/doi/abs/10.1080/10408363.2018.1561640
+%     \bibitem{4}
+%         https://onlinelibrary.wiley.com/doi/abs/10.1002/rcs.408
+%     \bibitem{5}
+%         https://www.mckinsey.de/~/media/McKinsey/Business%20Functions/Operations/Our%20Insights/Human%20plus%20machine%20A%20new%20era%20of%20automation%20in%20manufacturing/Human-plus-machine-A-new-era-of-automation-in-manufacturing.pdf
+%     \bibitem{6}
+%         https://escholarship.org/content/qt0tw0h6kg/qt0tw0h6kg.pdf
 
-    \bibitem{tandf2}
-        https://www.tandfonline.com/doi/full/10.1080/09513590701718364
+%     \bibitem{tandf2}
+%         https://www.tandfonline.com/doi/full/10.1080/09513590701718364
 
-    \bibitem{underactuated}
-        cite underactuated
-% @book{underactuated,
-% title        = "Underactuated Robotics",
-% subtitle     = "Algorithms for Walking, Running, Swimming, Flying, and Manipulation",
-% howpublished = "Course Notes for MIT 6.832",
-% author       = "Tedrake, Russ",
-% year         = 2023,
-% url          = "https://underactuated.csail.mit.edu",
-% }
 
-    \bibitem{pinns}
-        https://towardsdatascience.com/physics-informed-neural-networks-pinns-an-intuitive-guide-fff138069563
+%     \bibitem{pinns}
+%         https://towardsdatascience.com/physics-informed-neural-networks-pinns-an-intuitive-guide-fff138069563
 
-    \bibitem{drake}
-        cite drake
-% @misc{drake,
-%  author = "Russ Tedrake and the Drake Development Team",
-%  title = "Drake: Model-based design and verification for robotics",
-%  year = 2019,
-%  url = "https://drake.mit.edu"
-% }
-\end{thebibliography}
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
 \end{document}
