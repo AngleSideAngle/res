@@ -1,15 +1,319 @@
-\begin{thebibliography}{1}
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
-\bibitem{mpc_industry}
-M.~G. Forbes, R.~S. Patwardhan, H.~Hamadah, and R.~B. Gopaluni, ``Model
-  predictive control in industry: Challenges and opportunities,'' {\em
-  IFAC-PapersOnLine}, vol.~48, no.~8, pp.~531--538, 2015.
-\newblock 9th IFAC Symposium on Advanced Control of Chemical Processes ADCHEM
-  2015.
 
-\bibitem{youm2023imitating}
-D.~Youm, H.~Jung, H.~Kim, J.~Hwangbo, H.-W. Park, and S.~Ha, ``Imitating and
-  finetuning model predictive control for robust and symmetric quadrupedal
-  locomotion,'' 2023.
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{search_rescue}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=ea99a64caec39f3a75153ce90ef69e0a}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yugang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=b3403d636f2ba80097ef772ab41d98d2}{%
+           family={Nejat},
+           familyi={N\bibinitperiod},
+           given={Goldie},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{ae1fde5b5a46808624e28764ec3a98b0}
+      \strng{fullhash}{ae1fde5b5a46808624e28764ec3a98b0}
+      \strng{bibnamehash}{ae1fde5b5a46808624e28764ec3a98b0}
+      \strng{authorbibnamehash}{ae1fde5b5a46808624e28764ec3a98b0}
+      \strng{authornamehash}{ae1fde5b5a46808624e28764ec3a98b0}
+      \strng{authorfullhash}{ae1fde5b5a46808624e28764ec3a98b0}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Robotic Urban Search and Rescue: A Survey from the Control Perspective}
+      \field{year}{2013}
+    \endentry
+    \entry{MPC}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=58112cb88a80c1bc045b6eaab26a8695}{%
+           family={Tassa},
+           familyi={T\bibinitperiod},
+           given={Yuval},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=3f7794b74ff9702f164ae4a90da61243}{%
+           family={Mansard},
+           familyi={M\bibinitperiod},
+           given={Nicolas},
+           giveni={N\bibinitperiod}}}%
+        {{hash=f724f78b29989b8cacdffd621b480f4a}{%
+           family={Todorov},
+           familyi={T\bibinitperiod},
+           given={Emo},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{facd7411874425ca4deea87ce0179c89}
+      \strng{fullhash}{facd7411874425ca4deea87ce0179c89}
+      \strng{bibnamehash}{facd7411874425ca4deea87ce0179c89}
+      \strng{authorbibnamehash}{facd7411874425ca4deea87ce0179c89}
+      \strng{authornamehash}{facd7411874425ca4deea87ce0179c89}
+      \strng{authorfullhash}{facd7411874425ca4deea87ce0179c89}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2014 IEEE International Conference on Robotics and Automation (ICRA)}
+      \field{title}{Control-limited differential dynamic programming}
+      \field{year}{2014}
+      \field{pages}{1168\bibrangedash 1175}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/ICRA.2014.6907001
+      \endverb
+    \endentry
+    \entry{mpc_industry}{article}{}
+      \name{author}{4}{}{%
+        {{hash=17bc340c6a43184ee18e4352d1233013}{%
+           family={Forbes},
+           familyi={F\bibinitperiod},
+           given={Michael\bibnamedelima G.},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=6b91da567123e66970b0fff2a26f0c4a}{%
+           family={Patwardhan},
+           familyi={P\bibinitperiod},
+           given={Rohit\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=c8404b138c1412f1e427641f9a5be382}{%
+           family={Hamadah},
+           familyi={H\bibinitperiod},
+           given={Hamza},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c3bce6778d3449a8aa080c2b1c782c27}{%
+           family={Gopaluni},
+           familyi={G\bibinitperiod},
+           given={R.\bibnamedelimi Bhushan},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d44b718c421249263c5cc121ca9fdc5f}
+      \strng{fullhash}{42db215d930edf30f1244ed5a48cf8e0}
+      \strng{bibnamehash}{d44b718c421249263c5cc121ca9fdc5f}
+      \strng{authorbibnamehash}{d44b718c421249263c5cc121ca9fdc5f}
+      \strng{authornamehash}{d44b718c421249263c5cc121ca9fdc5f}
+      \strng{authorfullhash}{42db215d930edf30f1244ed5a48cf8e0}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With decades of successful application of model predictive control (MPC) to industrial processes, practitioners are now focused on ease of commissioning, monitoring, and automation of maintenance. Many industries do not necessarily need better algorithms, but rather improved usability of existing technologies to allow a limited workforce of varying expertise to easily commission, use, and maintain these valued applications. Continuous performance monitoring, and automated model reidentification are being used as vendors work to deliver automated adaptive MPC. This paper examines industrial practice and emerging research trends towards providing sustained MPC performance.}
+      \field{issn}{2405-8963}
+      \field{journaltitle}{IFAC-PapersOnLine}
+      \field{note}{9th IFAC Symposium on Advanced Control of Chemical Processes ADCHEM 2015}
+      \field{number}{8}
+      \field{title}{Model Predictive Control in Industry: Challenges and Opportunities}
+      \field{volume}{48}
+      \field{year}{2015}
+      \field{pages}{531\bibrangedash 538}
+      \range{pages}{8}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.ifacol.2015.09.022
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S2405896315011039
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S2405896315011039
+      \endverb
+      \keyw{industrial control,process control,model-based control,predictive control,adaptive control,performance monitoring,control applications,human factors}
+    \endentry
+    \entry{manufacturing_prosperity}{report}{}
+      \name{author}{2}{}{%
+        {{hash=004ceeb4ffcd6c2b88793a51c43377ff}{%
+           family={Kota},
+           familyi={K\bibinitperiod},
+           given={Sridhar},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e4ccfa4f9dcddc80d14379ff6d99f20a}{%
+           family={Mahoney},
+           familyi={M\bibinitperiod},
+           given={Thomas\bibnamedelima C.},
+           giveni={T\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {MForesight: Alliance for Manufacturing Foresight}%
+      }
+      \strng{namehash}{a5accbd07eed487be65b4f83ca16680f}
+      \strng{fullhash}{a5accbd07eed487be65b4f83ca16680f}
+      \strng{bibnamehash}{a5accbd07eed487be65b4f83ca16680f}
+      \strng{authorbibnamehash}{a5accbd07eed487be65b4f83ca16680f}
+      \strng{authornamehash}{a5accbd07eed487be65b4f83ca16680f}
+      \strng{authorfullhash}{a5accbd07eed487be65b4f83ca16680f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Manufacturing Prosperity: A Bold Strategy for National Wealth and Security}
+      \field{type}{techreport}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://deepblue.lib.umich.edu/handle/2027.42/145156
+      \endverb
+      \verb{url}
+      \verb https://deepblue.lib.umich.edu/handle/2027.42/145156
+      \endverb
+    \endentry
+    \entry{drake}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=480d067fbc7c00be4a01a0e4902c984e}{%
+           family={Tedrake},
+           familyi={T\bibinitperiod},
+           given={Russ},
+           giveni={R\bibinitperiod}}}%
+        {{hash=1130ff50d2a0e822d18b9347bfdeedb7}{%
+           family={Drake\bibnamedelimb Development\bibnamedelima Team},
+           familyi={D\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim T\bibinitperiod},
+           prefix={the},
+           prefixi={t\bibinitperiod}}}%
+      }
+      \strng{namehash}{301787f07d67300949271dbda5e96bbc}
+      \strng{fullhash}{301787f07d67300949271dbda5e96bbc}
+      \strng{bibnamehash}{301787f07d67300949271dbda5e96bbc}
+      \strng{authorbibnamehash}{301787f07d67300949271dbda5e96bbc}
+      \strng{authornamehash}{301787f07d67300949271dbda5e96bbc}
+      \strng{authorfullhash}{301787f07d67300949271dbda5e96bbc}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Drake: Model-based design and verification for robotics}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://drake.mit.edu
+      \endverb
+      \verb{url}
+      \verb https://drake.mit.edu
+      \endverb
+    \endentry
+    \entry{industry_4.0}{article}{}
+      \name{author}{4}{}{%
+        {{hash=1e9e80fb5bc43df028d06eb40fe68a21}{%
+           family={Javaid},
+           familyi={J\bibinitperiod},
+           given={Mohd},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ac64f478d5bbd373bdb223b8547d13de}{%
+           family={Haleem},
+           familyi={H\bibinitperiod},
+           given={Abid},
+           giveni={A\bibinitperiod}}}%
+        {{hash=be190e020a86a4a1dbc8bba3b05aab5b}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Ravi\bibnamedelima Pratap},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=7fc6d2201e1460e83153ebd28815a882}{%
+           family={Suman},
+           familyi={S\bibinitperiod},
+           given={Rajiv},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{b204d82021ad47d15867539a3b220f06}
+      \strng{fullhash}{d8e0f070268476da19fbb83998982c22}
+      \strng{bibnamehash}{b204d82021ad47d15867539a3b220f06}
+      \strng{authorbibnamehash}{b204d82021ad47d15867539a3b220f06}
+      \strng{authornamehash}{b204d82021ad47d15867539a3b220f06}
+      \strng{authorfullhash}{d8e0f070268476da19fbb83998982c22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{There is the increased application of new technologies in manufacturing, service, and communications. Industry 4.0 is the new fourth industrial revolution, which supports organisational efficiency. Robotics is an important technology of Industry 4.0, which provides extensive capabilities in the field of manufacturing. This technology has enhanced automation systems and does repetitive jobs precisely and at a lower cost. Robotics is progressively leading to the manufacturing of quality products while maintaining the value of existing collaborators schemes. The primary outcome of Industry 4.0 is intelligent factories developed with the aid of advanced robotics, massive data, cloud computing, solid safety, intelligent sensors, the Internet of things, and other advanced technological developments to be highly powerful, safe, and cost-effective. Thus, businesses will refine their manufacturing for mass adaptation by improving the workplace's safety and reliability on actual work and saving costs. This paper discusses the significant potential of Robotics in the field of manufacturing and allied areas. The paper discusses eighteen major applications of Robotics for Industry 4.0. Robots are ideal for collecting mysterious manufacturing data as they operate closer to the component than most other factory machines. This technology is helpful to perform a complex hazardous job, automation, sustain high temperature, working entire time and for a long duration in assembly lines. Many robots operating in intelligent factories use artificial intelligence to perform high-level tasks. Now they can also decide and learn from experience in various ongoing situations.}
+      \field{issn}{2667-2413}
+      \field{journaltitle}{Cognitive Robotics}
+      \field{title}{Substantial capabilities of robotics in enhancing industry 4.0 implementation}
+      \field{volume}{1}
+      \field{year}{2021}
+      \field{pages}{58\bibrangedash 75}
+      \range{pages}{18}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.cogr.2021.06.001
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S2667241321000057
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S2667241321000057
+      \endverb
+      \keyw{Artificial Intelligence,Cobots,Industry 4.0,Manufacturing,Robotics,Robotics Applications}
+    \endentry
+    \entry{Illinois_motion}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2ea8f995e9e39a336c9e3e3d5aae1750}{%
+           family={Hauser},
+           familyi={H\bibinitperiod},
+           given={Kris},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {University of Illinois at Urbana-Champaign}%
+      }
+      \strng{namehash}{2ea8f995e9e39a336c9e3e3d5aae1750}
+      \strng{fullhash}{2ea8f995e9e39a336c9e3e3d5aae1750}
+      \strng{bibnamehash}{2ea8f995e9e39a336c9e3e3d5aae1750}
+      \strng{authorbibnamehash}{2ea8f995e9e39a336c9e3e3d5aae1750}
+      \strng{authornamehash}{2ea8f995e9e39a336c9e3e3d5aae1750}
+      \strng{authorfullhash}{2ea8f995e9e39a336c9e3e3d5aae1750}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Robotic Systems}
+      \field{year}{2023}
+    \endentry
+    \entry{manipulation}{book}{}
+      \name{author}{1}{}{%
+        {{hash=480d067fbc7c00be4a01a0e4902c984e}{%
+           family={Tedrake},
+           familyi={T\bibinitperiod},
+           given={Russ},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{480d067fbc7c00be4a01a0e4902c984e}
+      \strng{fullhash}{480d067fbc7c00be4a01a0e4902c984e}
+      \strng{bibnamehash}{480d067fbc7c00be4a01a0e4902c984e}
+      \strng{authorbibnamehash}{480d067fbc7c00be4a01a0e4902c984e}
+      \strng{authornamehash}{480d067fbc7c00be4a01a0e4902c984e}
+      \strng{authorfullhash}{480d067fbc7c00be4a01a0e4902c984e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Course Notes for MIT 6.421}
+      \field{subtitle}{Perception, Planning, and Control}
+      \field{title}{Robotic Manipulation}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb http://manipulation.mit.edu
+      \endverb
+      \verb{url}
+      \verb http://manipulation.mit.edu
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{2}
+  \missing{3}
+  \missing{4}
+  \missing{5}
+\endrefsection
+\endinput
 
-\end{thebibliography}

@@ -1,9 +1,17 @@
 % pain
+% consider toggling word wrap in your editor
 \documentclass[11pt, titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 
 
 % bibliography
-\usepackage[english]{babel}
+\usepackage[
+backend=biber,
+style=numeric,
+sorting=ynt
+]{biblatex}
+\addbibresource{refs.bib}
 
 % useful packages
 \usepackage{amsmath}
@@ -65,27 +73,31 @@ Existing methods of robotic motion planning rely on numerical optimization to ge
 
 \section{Introduction}
 
-A primary goal of the field of control theory is the efficient and constrained control of complex dynamical systems. A highly popular method of accomplishing this is \cite{mpc_industry}
+Robotic manipulation is an area of high importance as global manufacturing increasingly relies on automation to accomplish tasks that would typically be done by humans. Advances in robotics and machine learning promise to be integral in the fourth industrial revolution, improving efficiency and worker safety \cite{industry_4.0}. Specifically, the advancement and effectiveness of industrial robotic systems is central to a developed nation's prosperity and economy. Due to high domestic costs and restrictions, offshore manufacturing is utilized by companies seeking to minimize cost of production. To improve economic conditions without worsening worker conditions, the United States must rely on robotic manufacturing \cite{manufacturing_prosperity}. Additionally, search and rescue presents a major opportunity for robotics to improve by making it safer and more efficient \cite{search_rescue}. For medicine, surgical robots can accomplish tasks with more precision and safety than their human counterparts \cite{2, 3, 4, 5}.
 
-\cite{youm2023imitating}
+A primary goal of the field of control theory is the efficient and constrained control of complex dynamical systems. A highly popular approach for this is Model Predictive Control, which relies on continuously replanning a trajectory over a specific horizon \cite{mpc_industry}.
 
-    - us government priorities:
-    - semi automated production
-    - make national production economically feasible
-    - well educated laborors, robots work with them
+% \cite{youm2023imitating}
+% shap review
+%     - us government priorities:
+%     - semi automated production
+%     - make national production economically feasible
+%     - well educated laborors, robots work with them
 
-    - developed a new framework that is applicable
+%     - developed a new framework that is applicable
     
-    - antibiotics production
-    - very important production
-    - microchips, taiwan, etc
-    - focus on relevant industries
+%     - antibiotics production
+%     - very important production
+%     - microchips, taiwan, etc
+%     - focus on relevant industries
 
-    - cutting edge of robotics surgery is nano robotic surgery
-    - nanorobots swarm etc
-    - in order to exploit specifics, it would be highly beneficial to modify architecture in X ways
-    - claim adaptive ml algorithms are needed
-    - adaptive algorithms for smart manufacturing and adaptive ml
+%     - cutting edge of robotics surgery is nano robotic surgery
+%     - nanorobots swarm etc
+%     - in order to exploit specifics, it would be highly beneficial to modify architecture in X ways
+%     - claim adaptive ml algorithms are needed
+%     - adaptive algorithms for smart manufacturing and adaptive ml
+
+
 
     % Current methods of robotic manipulation rely on predefined systems and control algorithms to function effectively. \cite{underactuated} This is a effective in most scenarios. However, it requires retuning for any change to the system. In consumer or high risk situations, it may be impractical to retune systems periodically to account for changes to the physical hardware. In this paper, I propose an alternative paradigm using physics-informed machine learning to correct for changes to the system on the fly.
 
@@ -94,85 +106,129 @@ A primary goal of the field of control theory is the efficient and constrained c
 
     % Robotic manipulation is an area of high importance as global manufacturing increasingly relies on automation to accomplish tasks that would typically be done by humans. Advances in machine learning promise to be as impactful as an industrial revolution, with potential to deliver widespread benefits to civilization.\cite{ai_on_industrial} Specifically, advances in robotic automation for manufacturing and medicine have potential to reshape their industries for the better. In the case of manufacturing, this allows for significantly greater productivity and worker safety. For medicine, surgical robots can accomplish tasks with more precision and safety than their human counterparts. \cite{2, 3, 4, 5} Automation in manufacturing is also critical for the prosperity and improvement of our modern society. For example, relevance in the global economy is viewed as core to American national security, and automation is an essential part in that \cite{6}. Such importance is further exacerbated by declining birth rates in industrialized nations, which means a smaller workforce to support a growing aging population \cite{tandf2}. Because of this, advances in robotic automation are essential in overcoming global challenges and improving the standard of living around the world.
     
-
-
-
-    % Of all animals, humans are uniquely capable of powerful and precise throwing motions \cite{Roach}. This is enabled by several physical traits that allow for the efficient transfer of energy in overhand throw motions.
-
     % Robotic trajectory optimization is a well known field, however, implementations often suffer from relatively long compute times for numerical optimization. Additionally, successful throwing implementations for rigid robotic arms exist. However, they all 
 
 
-    analytical dynamics
+    % analytical dynamics
 
 
 \section{Methods}
 
 \subsection{Nonlinear Model Predictive Control (NMPC)}
+
+Model predictive control \cite{MPC} and its nonlinear variation rely on an algorithm of several steps.
+\begin{enumerate}
+    \item Create an optimized trajectory from current to target states over the specified horizon
+    \item Follow the first discrete state within the larger trajectory
+    \item Repeat with the new state
+\end{enumerate}
+
+Derivation from \cite{Illinois_motion}
+
+\begin{equation}
+J(x,u) = \int_0^\infty L(x(t),u(t),t) dt.
+\label{eq:CostFunctional}
+\end{equation}
+
+\begin{equation}
+\begin{gathered}
+x^\star, u^\star = \arg \min_{x,u} J(x,u) \text{ such that} \\
+\dot{x}(t) = f(x(t),u(t)) \text{ for all }t  \quad \text{(Dynamics constraint)} \\
+x(0) = x_0 \quad \text{(Initial state)}
+\end{gathered}
+\label{eq:OptimalControl}
+\end{equation}
+
 \subsection{Physics Informed Neural Networks (PINNs)}
 \subsection{Simulation}
 
-    \subsection{Derivation}
+To create an effective simulation for system, I use Drake \cite{drake}, a framework for controlling and simulating robotic systems. The specific system I control is a 7 degrees of freedom KUKA iiwa arm, documented in MIT Manipulation \cite{manipulation}
 
-    % To derive the dynamics for a double jointed arm system, I follow the derivation for an acrobot in Underactuated \cite{underactuated}. This is a fairly simple derivation using the euler-lagrange equation.
-    - talk about what was done in methodologies before me
-    - 
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{diagram.png}
+\caption{\label{fig:diagram}A flow diagram of the PID controller and system.}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.25\linewidth]{iiwa.png}
+\caption{\label{fig:iiwa}A visualization of the simulation, using Meshcat and the iiwa14 urdf file.}
+\end{figure}
+
+\begin{lstlisting}[language=Python]
+meshcat = StartMeshcat()
+def run_simulation():
+    meshcat.Delete()
+    meshcat.DeleteAddedControls()
     
-    \begin{equation}
-        \begin{bmatrix} l_{c1} s_1 \\ -l_{c1} c_1 \end{bmatrix}, \quad
-        \begin{bmatrix} l_1 s_1 + l_{c2} s_{1+2} \\ -l_1 c_1 - l_{c2}
-        c_{1+2} \end{bmatrix},
-    \end{equation}
+    builder = DiagramBuilder()
 
-    \begin{gather} T = T_1 + T_2, \quad T_1 = \frac{1}{2} I_1 \dot{q}_1^2
-        \\ T_2 = \frac{1}{2} ( m_2 l_1^2 + I_2 + 2 m_2 l_1 l_{c2} c_2 )
-        \dot{q}_1^2 + \frac{1}{2} I_2 \dot{q}_2^2 + (I_2 + m_2 l_1 l_{c2} c_2)
-        \dot{q}_1 \dot{q}_2 \\ 
-            U = -m_1 g l_{c1} c_1 - m_2 g (l_1 c_1 +
-        l_{c2} c_{1+2}) \end{gather}
+    # Adds both MultibodyPlant and the SceneGraph, and wires them together.
+    plant, scene_graph = AddMultibodyPlantSceneGraph(builder, time_step=1e-4)
+    # Note that we parse into both the plant and the scene_graph here.
+    iiwa_model = Parser(plant, scene_graph).AddModelsFromUrl(
+        "package://drake/manipulation/models/iiwa_description/sdf/iiwa14_no_collision.sdf"
+    )[0]
+    plant.WeldFrames(plant.world_frame(), plant.GetFrameByName("iiwa_link_0"))
+    plant.Finalize()
 
-    \begin{gather} (I_1 + I_2 + m_2 l_1^2 +
-        2m_2 l_1 l_{c2} c_2) \ddot{q}_1 + (I_2 + m_2 l_1 l_{c2} c_2)\ddot{q}_2 -
-        2m_2 l_1 l_{c2} s_2 \dot{q}_1 \dot{q}_2 \\ \quad -m_2 l_1 l_{c2} s_2
-        \dot{q}_2^2 + m_1 g l_{c1}s_1 + m_2 g (l_1 s_1 + l_{c2} s_{1+2}) = 0 \\
-        (I_2 + m_2 l_1 l_{c2} c_2) \ddot{q}_1 + I_2 \ddot{q}_2 + m_2 l_1 l_{c2}
-        s_2 \dot{q}_1^2 + m_2 g l_{c2} s_{1+2} = \tau \end{gather}
+    # Adds the MeshcatVisualizer and wires it to the SceneGraph.
+    visualizer = MeshcatVisualizer.AddToBuilder(builder, scene_graph, meshcat)
 
-    \subsection{Control}
+    # pid controller
+    kp = [100] * plant.num_positions()
+    ki = [1] * plant.num_positions()
+    kd = [20] * plant.num_positions()
+    iiwa_controller = builder.AddSystem(
+        InverseDynamicsController(plant, kp, ki, kd, False)
+    )
+    iiwa_controller.set_name("iiwa_controller")
 
-    To control this system, I use Model Predictive Control.
+    # Connect ports
+    builder.Connect(
+        plant.get_state_output_port(iiwa_model),
+        iiwa_controller.get_input_port_estimated_state()
+    )
+    builder.Connect(
+        iiwa_controller.get_output_port_control(),
+        plant.get_actuation_input_port()
+    )
+    diagram = builder.Build()
+    diagram.set_name("with iiwa controller")
 
-    \subsection{Optimization}
+    context = diagram.CreateDefaultContext()
+    plant_context = plant.GetMyMutableContextFromRoot(context)
+    q0 = np.array([-1.57, 0.1, 0, -1.2, 0, 1.6, 2])
+    x0 = np.hstack((q0, 2 * q0))
+    plant.SetPositions(plant_context, q0)
+    iiwa_controller.GetInputPort("desired_state").FixValue(
+        iiwa_controller.GetMyMutableContextFromRoot(context), x0
+    )
+    print(context)
+    # plant.SetPositions(plant_context, [-1.57, 0.1, 0, -1.2, 0, 1.6, 0])
+    # plant.get_actuation_input_port().FixValue(plant_context, np.zeros(7))
 
-    \begin{lstlisting}[language=Python]
-        builder = DiagramBuilder()
+    simulator = Simulator(diagram, context)
+    simulator.set_target_realtime_rate(1.0)
 
-        pendulum = builder.AddNamedSystem("pendulum", PendulumPlant())
-        
-        controller = builder.AddNamedSystem("controller",
-                                            PidController(kp=[10.], ki=[1.], kd=[1.]))
-        
-        builder.Connect(pendulum.get_state_output_port(),
-                        controller.get_input_port_estimated_state())
-        builder.Connect(controller.get_output_port_control(), pendulum.get_input_port())
-        
-        builder.ExportInput(controller.get_input_port_desired_state())
-        builder.ExportOutput(pendulum.get_state_output_port())
-        
-        logger = LogVectorOutput(pendulum.get_state_output_port(), builder)
-        logger.set_name("logger")
-        
-        diagram = builder.Build()
-        diagram.set_name("diagram")
-        
-        display(SVG(pydot.graph_from_dot_data(
-            diagram.GetGraphvizString(max_depth=2))[0].create_svg()))
-    \end{lstlisting}
+    meshcat.StartRecording()
+    simulator.AdvanceTo(10.0)
+    meshcat.StopRecording()
+    meshcat.PublishRecording()
 
-    \subsection{Physics Informed Neural Network (PINN)}
+    display(
+    SVG(pydot.graph_from_dot_data(diagram.GetGraphvizString())[0].create_svg())
+)
 
-    
+\end{lstlisting}
+This code
 
 \section{Discussion}
+
+In the future, 
+
 \section{Conclusion}
 
 % \begin{thebibliography}{unsrt}
@@ -199,7 +255,6 @@ A primary goal of the field of control theory is the efficient and constrained c
 %         https://towardsdatascience.com/physics-informed-neural-networks-pinns-an-intuitive-guide-fff138069563
 
 
-\bibliographystyle{ieeetr}
-\bibliography{refs}
+\printbibliography
 
 \end{document}
