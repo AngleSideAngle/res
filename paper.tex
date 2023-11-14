@@ -73,30 +73,9 @@ Existing methods of robotic motion planning rely on numerical optimization to ge
 
 \section{Introduction}
 
-Robotic manipulation is an area of high importance as global manufacturing increasingly relies on automation to accomplish tasks that would typically be done by humans. Advances in robotics and machine learning promise to be integral in the fourth industrial revolution, improving efficiency and worker safety \cite{industry_4.0}. Specifically, the advancement and effectiveness of industrial robotic systems is central to a developed nation's prosperity and economy. Due to high domestic costs and restrictions, offshore manufacturing is utilized by companies seeking to minimize cost of production. To improve economic conditions without worsening worker conditions, the United States must rely on robotic manufacturing \cite{manufacturing_prosperity}. Additionally, search and rescue presents a major opportunity for robotics to improve by making it safer and more efficient \cite{search_rescue}. For medicine, surgical robots can accomplish tasks with more precision and safety than their human counterparts \cite{2, 3, 4, 5}.
+Robotic manipulation is an area of high importance as global manufacturing increasingly relies on automation to accomplish tasks that would typically be done by humans. Advances in robotics and machine learning promise to be integral in the fourth industrial revolution, improving efficiency and worker safety \cite{industry_4.0}. Specifically, the advancement and effectiveness of industrial robotic systems is central to a developed nation's prosperity and economy. Due to high domestic costs and restrictions, offshore manufacturing is utilized by companies seeking to minimize cost of production. To improve economic conditions without worsening worker conditions, the United States must rely on robotic manufacturing \cite{manufacturing_prosperity}. Additionally, search and rescue presents a major opportunity for robotics to improve by making it safer and more efficient \cite{search_rescue}. For medicine, surgical robots can accomplish tasks with more precision and safety than their human counterparts \cite{surgical_robots}.
 
-A primary goal of the field of control theory is the efficient and constrained control of complex dynamical systems. A highly popular approach for this is Model Predictive Control, which relies on continuously replanning a trajectory over a specific horizon \cite{mpc_industry}.
-
-% \cite{youm2023imitating}
-% shap review
-%     - us government priorities:
-%     - semi automated production
-%     - make national production economically feasible
-%     - well educated laborors, robots work with them
-
-%     - developed a new framework that is applicable
-    
-%     - antibiotics production
-%     - very important production
-%     - microchips, taiwan, etc
-%     - focus on relevant industries
-
-%     - cutting edge of robotics surgery is nano robotic surgery
-%     - nanorobots swarm etc
-%     - in order to exploit specifics, it would be highly beneficial to modify architecture in X ways
-%     - claim adaptive ml algorithms are needed
-%     - adaptive algorithms for smart manufacturing and adaptive ml
-
+A primary goal of the field of control theory is the efficient and constrained control of complex dynamical systems. A highly popular approach for this is Model Predictive Control, which relies on continuously replanning a trajectory over a specific horizon \cite{mpc_industry}. In situations where high processing power is available, such as on Boston Dyanmics' robots, this is a necessary tradeoff for the flexibility of nonlinear MPC \cite{spot}. However, despite significant development on improving this controller, nonlinear MPC still suffers from requiring "enourmous computational effort" \cite{mpc_computation}. To address this, several groups have successfully used physics-informed machine learning for optimization in MPC instead of traditional methods \cite{pinn_mpc_manipulators, pinns_mpc}. A natural application of this is in control of high dimensionality robotic arms, which is made significantly more efficient by the neural network. These papers provide evidence in favor of PINN-based MPCs for controlling lower dimensional systems, so I hope to use a robotics code framework called Drake \cite{drake} to simulate the control of a high dimensional industrial arm.
 
 
     % Current methods of robotic manipulation rely on predefined systems and control algorithms to function effectively. \cite{underactuated} This is a effective in most scenarios. However, it requires retuning for any change to the system. In consumer or high risk situations, it may be impractical to retune systems periodically to account for changes to the physical hardware. In this paper, I propose an alternative paradigm using physics-informed machine learning to correct for changes to the system on the fly.
@@ -116,14 +95,20 @@ A primary goal of the field of control theory is the efficient and constrained c
 
 \subsection{Nonlinear Model Predictive Control (NMPC)}
 
-Model predictive control \cite{MPC} and its nonlinear variation rely on an algorithm of several steps.
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=0.5\linewidth]{MPC_scheme_basic.png}
+\caption{\label{fig:mpc}A diagram of model predictive control by Martin Behrendt \cite{mpc_diagram}. It shows the planning of a new trajectory over time in comparison to the previously planned trajectory. }
+\end{figure}
+
+Model predictive control \cite{MPC} and its nonlinear variation are an algorithm with several steps.
 \begin{enumerate}
     \item Create an optimized trajectory from current to target states over the specified horizon
     \item Follow the first discrete state within the larger trajectory
     \item Repeat with the new state
 \end{enumerate}
 
-Derivation from \cite{Illinois_motion}
+The trajectory calculated at each step is based on an optimal control law, which minimizes a cost function $J(x, u)$ \cite{Illinois_motion}.
 
 \begin{equation}
 J(x,u) = \int_0^\infty L(x(t),u(t),t) dt.
@@ -132,26 +117,20 @@ J(x,u) = \int_0^\infty L(x(t),u(t),t) dt.
 
 \begin{equation}
 \begin{gathered}
-x^\star, u^\star = \arg \min_{x,u} J(x,u) \text{ such that} \\
-\dot{x}(t) = f(x(t),u(t)) \text{ for all }t  \quad \text{(Dynamics constraint)} \\
-x(0) = x_0 \quad \text{(Initial state)}
+x^\star, u^\star = \arg \min_{x,u} J(x,u) \\
+\dot{x}(t) = f(x(t),u(t)), \forall t \\
+x(0) = x_0
 \end{gathered}
 \label{eq:OptimalControl}
 \end{equation}
 
-\subsection{Physics Informed Neural Networks (PINNs)}
+This would be solved by a PINN trained to the dynamics of the system, however, I was unable to successfully implement this on a deadline. For the remainder of this project, I use an "InverseDynamicsController," which uses the system's dynamics to convert PID control output into applicable voltages.
+
 \subsection{Simulation}
 
-To create an effective simulation for system, I use Drake \cite{drake}, a framework for controlling and simulating robotic systems. The specific system I control is a 7 degrees of freedom KUKA iiwa arm, documented in MIT Manipulation \cite{manipulation}
+To create an effective simulation for the system, I use Drake. The specific system I control is a 7 degrees of freedom KUKA iiwa arm, with documentation from MIT Manipulation \cite{manipulation}. Since I could not immediately get a PINN working
 
-\begin{figure}
-\centering
-\includegraphics[width=1\linewidth]{diagram.png}
-\caption{\label{fig:diagram}A flow diagram of the PID controller and system.}
-\end{figure}
-
-
-\begin{figure}
+\begin{figure}[hbt!]
 \centering
 \includegraphics[width=0.25\linewidth]{iiwa.png}
 \caption{\label{fig:iiwa}A visualization of the simulation, using Meshcat and the iiwa14 urdf file.}
@@ -159,101 +138,84 @@ To create an effective simulation for system, I use Drake \cite{drake}, a framew
 
 \begin{lstlisting}[language=Python]
 meshcat = StartMeshcat()
-def run_simulation():
-    meshcat.Delete()
-    meshcat.DeleteAddedControls()
-    
-    builder = DiagramBuilder()
+builder = DiagramBuilder()
 
-    # Adds both MultibodyPlant and the SceneGraph, and wires them together.
-    plant, scene_graph = AddMultibodyPlantSceneGraph(builder, time_step=1e-4)
-    # Note that we parse into both the plant and the scene_graph here.
-    iiwa_model = Parser(plant, scene_graph).AddModelsFromUrl(
-        "package://drake/manipulation/models/iiwa_description/sdf/iiwa14_no_collision.sdf"
-    )[0]
-    plant.WeldFrames(plant.world_frame(), plant.GetFrameByName("iiwa_link_0"))
-    plant.Finalize()
+# Adds both MultibodyPlant and the SceneGraph, and wires them together.
+plant, scene_graph = AddMultibodyPlantSceneGraph(builder, time_step=1e-4)
+# Note that we parse into both the plant and the scene_graph here.
+iiwa_model = Parser(plant, scene_graph).AddModelsFromUrl("urdf url here")[0]
+plant.WeldFrames(plant.world_frame(), plant.GetFrameByName("iiwa_link_0"))
+plant.Finalize()
 
-    # Adds the MeshcatVisualizer and wires it to the SceneGraph.
-    visualizer = MeshcatVisualizer.AddToBuilder(builder, scene_graph, meshcat)
+# Set up visualizer
+visualizer = MeshcatVisualizer.AddToBuilder(builder, scene_graph, meshcat)
 
-    # pid controller
-    kp = [100] * plant.num_positions()
-    ki = [1] * plant.num_positions()
-    kd = [20] * plant.num_positions()
-    iiwa_controller = builder.AddSystem(
-        InverseDynamicsController(plant, kp, ki, kd, False)
-    )
-    iiwa_controller.set_name("iiwa_controller")
+# PID controller
+n = plant.num_positions()
+kp = [100] * n
+ki = [1] * n
+kd = [20] * n
+iiwa_controller = builder.AddSystem(
+    InverseDynamicsController(plant, kp, ki, kd, False)
+)
+iiwa_controller.set_name("iiwa_controller")
 
-    # Connect ports
-    builder.Connect(
-        plant.get_state_output_port(iiwa_model),
-        iiwa_controller.get_input_port_estimated_state()
-    )
-    builder.Connect(
-        iiwa_controller.get_output_port_control(),
-        plant.get_actuation_input_port()
-    )
-    diagram = builder.Build()
-    diagram.set_name("with iiwa controller")
+# Wire simulation
+builder.Connect(
+    plant.get_state_output_port(iiwa_model),
+    iiwa_controller.get_input_port_estimated_state()
+)
+builder.Connect(
+    iiwa_controller.get_output_port_control(),
+    plant.get_actuation_input_port()
+)
+diagram = builder.Build()
+diagram.set_name("iiwa diagram")
 
-    context = diagram.CreateDefaultContext()
-    plant_context = plant.GetMyMutableContextFromRoot(context)
-    q0 = np.array([-1.57, 0.1, 0, -1.2, 0, 1.6, 2])
-    x0 = np.hstack((q0, 2 * q0))
-    plant.SetPositions(plant_context, q0)
-    iiwa_controller.GetInputPort("desired_state").FixValue(
-        iiwa_controller.GetMyMutableContextFromRoot(context), x0
-    )
-    print(context)
-    # plant.SetPositions(plant_context, [-1.57, 0.1, 0, -1.2, 0, 1.6, 0])
-    # plant.get_actuation_input_port().FixValue(plant_context, np.zeros(7))
+context = diagram.CreateDefaultContext()
+plant_context = plant.GetMyMutableContextFromRoot(context)
 
-    simulator = Simulator(diagram, context)
-    simulator.set_target_realtime_rate(1.0)
-
-    meshcat.StartRecording()
-    simulator.AdvanceTo(10.0)
-    meshcat.StopRecording()
-    meshcat.PublishRecording()
-
-    display(
-    SVG(pydot.graph_from_dot_data(diagram.GetGraphvizString())[0].create_svg())
+# Arbitrary starting config
+q0 = np.array([-1.5, 0.1, 0, -1.2, 0, 1.6, 2])
+w0 = 2 * q0
+x0 = np.hstack((q0, w0))
+plant.SetPositions(plant_context, q0)
+iiwa_controller.GetInputPort("desired_state").FixValue(
+    iiwa_controller.GetMyMutableContextFromRoot(context), x0
 )
 
+# Simulator
+simulator = Simulator(diagram, context)
+simulator.set_target_realtime_rate(1.0)
+
+meshcat.StartRecording()
+simulator.AdvanceTo(10.0)
+meshcat.StopRecording()
+meshcat.PublishRecording()
+
 \end{lstlisting}
-This code
+
+This code sets up a simulation, with a structure shown in figure \ref{fig:diagram}. Notably,
+
+\section{Results}
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=1\linewidth]{diagram.png}
+\caption{\label{fig:diagram}A flow input/output diagram of a PID controller connected to the iiwa system, generated by Drake.}
+\end{figure}
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=0.5\linewidth]{pid.png}
+\caption{\label{fig:pid}A graph of the base joint of the iiwa arm under inversion PID control. As you can see, because the arm is fully actuated, the position very quickly approaches its setpoint.}
+\end{figure}
+
+For this project, while I was able to make progress with the simulation and nonlinear model predictive controller, I was unable to successfully finish a python implementation of the neural network on time. This limited my ability to collect data on every component working as a whole. However, as shown in figure \ref{fig:diagram}, I was successful in creating the closed loop control simulation based on the loaded arm dynamics. Overall, the tools I employed for the simulation of this robot were very effective, and will likely see significantly more prevalence going forward. Lastly, as shown in \ref{fig:pid}, I demonstrated the effectiveness of seperate PID control for individual components of the arm.
 
 \section{Discussion}
 
-In the future, 
-
-\section{Conclusion}
-
-% \begin{thebibliography}{unsrt}
-%     \bibitem{ai_on_industrial}
-%         https://arxiv.org/pdf/2011.03044.pdf
-%     \bibitem{Roach}
-%         Roach, N., Venkadesan, M., Rainbow, M. et al. Elastic energy storage in the shoulder and the evolution of high-speed throwing in Homo . Nature 498, 483–486 (2013). https://doi.org/10.1038/nature12267
-%     \bibitem{2}
-%         https://nvlpubs.nist.gov/nistpubs/eab/nist.eab.1.pdf
-%     \bibitem{3}
-%         https://www.tandfonline.com/doi/abs/10.1080/10408363.2018.1561640
-%     \bibitem{4}
-%         https://onlinelibrary.wiley.com/doi/abs/10.1002/rcs.408
-%     \bibitem{5}
-%         https://www.mckinsey.de/~/media/McKinsey/Business%20Functions/Operations/Our%20Insights/Human%20plus%20machine%20A%20new%20era%20of%20automation%20in%20manufacturing/Human-plus-machine-A-new-era-of-automation-in-manufacturing.pdf
-%     \bibitem{6}
-%         https://escholarship.org/content/qt0tw0h6kg/qt0tw0h6kg.pdf
-
-%     \bibitem{tandf2}
-%         https://www.tandfonline.com/doi/full/10.1080/09513590701718364
-
-
-%     \bibitem{pinns}
-%         https://towardsdatascience.com/physics-informed-neural-networks-pinns-an-intuitive-guide-fff138069563
-
+My results are rather inconclusive regarding the effectiveness of PINN-based NMPC, however they convey the utility of simulation in the robotics field. It is important to note, that for these controllers to reach widespread adoption, a well documented and high performance implementation will have to exist, considering the technical barrier to implementing it from scratch.
 
 \printbibliography
 

@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber paper"] 0 "paper.bcf" "paper.bbl" "paper" 1699430766 -1
-  "./refs.bib" 1699428187 9739 542fb5ea5e7f34c196b201ec4c90fe15 ""
-  "paper.bcf" 1699430766 107853 aecceffbc55b40d8577b3a8e8d99a60b "pdflatex"
+["biber paper"] 1699477177 "paper.bcf" "paper.bbl" "paper" 1699478055 0
+  "./refs.bib" 1699466257 13343 b712e879e06241bfd858088b5b3fbb6d ""
+  "paper.bcf" 1699478055 108105 c2b2d0c155e8885af355db0fa6c0da4f "pdflatex"
   (generated)
   "paper.bbl"
   "paper.blg"
   (rewritten before read)
-["pdflatex"] 1699430765 "/home/asa/Projects/res/paper.tex" "paper.pdf" "paper" 1699430766 0
-  "/home/asa/Projects/res/paper.tex" 1699430765 12569 e517798f1e9313e09125906c3b6995fc ""
+["pdflatex"] 1699478054 "/home/asa/Projects/res/paper.tex" "paper.pdf" "paper" 1699478055 0
+  "/home/asa/Projects/res/paper.tex" 1699478053 13001 7bb4b49ae7d6499970a65c3398ba4277 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -43,6 +43,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb" 1248133631 35022 e40946b20bfdcd1099eafb2bcd9f25dd ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
@@ -130,13 +131,15 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1684972800 40326 aba987258e6d6b6da5dec3a727ea174b ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1696597796 292067 e3a0646fd8db0a03b75f068e69bdb032 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1696597772 6471185 f55548e28df114daadf6687be48553bc ""
+  "MPC_scheme_basic.png" 1699431344 102047 3cc57b1d2b9d00d5f4002732d39554d9 ""
   "diagram.png" 1699428544 97734 ef7a8fc279695facf72c30e06c49b9da ""
   "iiwa.png" 1699426612 106061 899b9760c7a1966d71f4bb2b33dc7079 ""
-  "paper.aux" 1699430766 3585 53a2e3a2dde1de7240069ef64bee5c2d "pdflatex"
-  "paper.bbl" 1699429970 14910 b69ab84d3266ad9ad4d3c538fde08db1 "biber paper"
-  "paper.out" 1699430766 1029 2d6d6d9a7298eb20b89039b2ed2eaccf "pdflatex"
-  "paper.run.xml" 1699430766 2306 ba8133db1549e3cd747c8dd74d036a7d "pdflatex"
-  "paper.tex" 1699430765 12569 e517798f1e9313e09125906c3b6995fc ""
+  "paper.aux" 1699478055 5281 819a3f32b640e5e4094e0a6de86d94b4 "pdflatex"
+  "paper.bbl" 1699477178 27783 51e142f09cd4d19b575735733532269b "biber paper"
+  "paper.out" 1699478055 739 a808864a33672f38b616d9892fd6c087 "pdflatex"
+  "paper.run.xml" 1699478055 2306 ba8133db1549e3cd747c8dd74d036a7d "pdflatex"
+  "paper.tex" 1699478053 13001 7bb4b49ae7d6499970a65c3398ba4277 ""
+  "pid.png" 1699477908 17289 4e26f0d2da7b9b34f732e7c86d840171 ""
   (generated)
   "paper.aux"
   "paper.bcf"

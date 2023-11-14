@@ -19,6 +19,138 @@
 
 \refsection{0}
   \datalist[entry]{ynt/global//global/global}
+    \entry{mpc_computation}{article}{}
+      \name{author}{4}{}{%
+        {{hash=3a6638a50802637647481038a04b83cb}{%
+           family={Blet},
+           familyi={B\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=4e70b9e3d45989d6d02c4ac8fc477b63}{%
+           family={Megías},
+           familyi={M\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=65232f20c7d3005f725ec544cc78b9bd}{%
+           family={Serrano},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9995f3674ec7952d163affce8a5eea27}{%
+           family={Prada},
+           familyi={P\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \strng{namehash}{1aedb6044a961128b82442db2dc1dbde}
+      \strng{fullhash}{ca33b4bbc7fe2cdd6f053769b9babeea}
+      \strng{bibnamehash}{1aedb6044a961128b82442db2dc1dbde}
+      \strng{authorbibnamehash}{1aedb6044a961128b82442db2dc1dbde}
+      \strng{authornamehash}{1aedb6044a961128b82442db2dc1dbde}
+      \strng{authorfullhash}{ca33b4bbc7fe2cdd6f053769b9babeea}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{One of the main drawbacks of NMPC schemes is the enormous computational effort these controllers require. On the other hand, linear MPC methods can be implemented solving just Quadratic Programming (QP) or Linear Programming (LP) problems. In this paper, an alternative implementation of NMPC suggested by De Keyser (1998) is implemented to reduce the computational effort. This methodology is based on on-line linearisation and solves and iterative procedure which, if convergent, provides with the solution of the NMPC problem. This controller is tested and compared with the purely nonlinear MPC schemes.}
+      \field{issn}{1474-6670}
+      \field{journaltitle}{IFAC Proceedings Volumes}
+      \field{note}{15th IFAC World Congress}
+      \field{number}{1}
+      \field{title}{NONLINEAR MPC VERSUS MPC USING ON-LINE LINEARISATION — A COMPARATIVE STUDY}
+      \field{volume}{35}
+      \field{year}{2002}
+      \field{pages}{147\bibrangedash 152}
+      \range{pages}{6}
+      \verb{doi}
+      \verb https://doi.org/10.3182/20020721-6-ES-1901.00593
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S1474667015390145
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S1474667015390145
+      \endverb
+      \keyw{predictive control,nonlinear systems,constraints}
+    \endentry
+    \entry{mpc_diagram}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b9f2fbea12b49947c7f646b6b45a5e94}{%
+           family={Behrendt},
+           familyi={B\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{b9f2fbea12b49947c7f646b6b45a5e94}
+      \strng{fullhash}{b9f2fbea12b49947c7f646b6b45a5e94}
+      \strng{bibnamehash}{b9f2fbea12b49947c7f646b6b45a5e94}
+      \strng{authorbibnamehash}{b9f2fbea12b49947c7f646b6b45a5e94}
+      \strng{authornamehash}{b9f2fbea12b49947c7f646b6b45a5e94}
+      \strng{authorfullhash}{b9f2fbea12b49947c7f646b6b45a5e94}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A basic working principle of Model Predictive Control}
+      \field{year}{2009}
+    \endentry
+    \entry{surgical_robots}{article}{}
+      \name{author}{4}{}{%
+        {{hash=e9cf3b34736ddfe15a22021184ac237d}{%
+           family={Moustris},
+           familyi={M\bibinitperiod},
+           given={G.\bibnamedelimi P.},
+           giveni={G\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=675fbd196acb7e25c742a8cbd0abff39}{%
+           family={Hiridis},
+           familyi={H\bibinitperiod},
+           given={S.\bibnamedelimi C.},
+           giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=08b9af96c228ddc56db97347ffc2722e}{%
+           family={Deliparaschos},
+           familyi={D\bibinitperiod},
+           given={K.\bibnamedelimi M.},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=b5438e3bfc70e4ee5de446497610bf8e}{%
+           family={Konstantinidis},
+           familyi={K\bibinitperiod},
+           given={K.\bibnamedelimi M.},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{cf56eb1d94eaf59a83f50931bc857663}
+      \strng{fullhash}{c2d03c26711283f7712f449b01b28021}
+      \strng{bibnamehash}{cf56eb1d94eaf59a83f50931bc857663}
+      \strng{authorbibnamehash}{cf56eb1d94eaf59a83f50931bc857663}
+      \strng{authornamehash}{cf56eb1d94eaf59a83f50931bc857663}
+      \strng{authorfullhash}{c2d03c26711283f7712f449b01b28021}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract Background Autonomous control of surgical robotic platforms may offer enhancements such as higher precision, intelligent manoeuvres, tissue-damage avoidance, etc. Autonomous robotic systems in surgery are largely at the experimental level. However, they have also reached clinical application. Methods A literature review pertaining to commercial medical systems which incorporate autonomous and semi-autonomous features, as well as experimental work involving automation of various surgical procedures, is presented. Results are drawn from major databases, excluding papers not experimentally implemented on real robots. Results Our search yielded several experimental and clinical applications, describing progress in autonomous surgical manoeuvres, ultrasound guidance, optical coherence tomography guidance, cochlear implantation, motion compensation, orthopaedic, neurological and radiosurgery robots. Conclusion Autonomous and semi-autonomous systems are beginning to emerge in various interventions, automating important steps of the operation. These systems are expected to become standard modality and revolutionize the face of surgery. Copyright © 2011 John Wiley \& Sons, Ltd.}
+      \field{journaltitle}{The International Journal of Medical Robotics and Computer Assisted Surgery}
+      \field{number}{4}
+      \field{title}{Evolution of autonomous and semi-autonomous robotic surgical systems: a review of the literature}
+      \field{volume}{7}
+      \field{year}{2011}
+      \field{pages}{375\bibrangedash 392}
+      \range{pages}{18}
+      \verb{doi}
+      \verb https://doi.org/10.1002/rcs.408
+      \endverb
+      \verb{eprint}
+      \verb https://onlinelibrary.wiley.com/doi/pdf/10.1002/rcs.408
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/rcs.408
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/rcs.408
+      \endverb
+      \keyw{minimally invasive surgery (MIS),robotic surgery,autonomous robots}
+    \endentry
     \entry{search_rescue}{misc}{}
       \name{author}{2}{}{%
         {{hash=ea99a64caec39f3a75153ce90ef69e0a}{%
@@ -256,6 +388,81 @@
       \endverb
       \keyw{Artificial Intelligence,Cobots,Industry 4.0,Manufacturing,Robotics,Robotics Applications}
     \endentry
+    \entry{spot}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=e17054e48d4eec6b4dffea3c5c4ade10}{%
+           family={Dynamics},
+           familyi={D\bibinitperiod},
+           given={Boston},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{e17054e48d4eec6b4dffea3c5c4ade10}
+      \strng{fullhash}{e17054e48d4eec6b4dffea3c5c4ade10}
+      \strng{bibnamehash}{e17054e48d4eec6b4dffea3c5c4ade10}
+      \strng{authorbibnamehash}{e17054e48d4eec6b4dffea3c5c4ade10}
+      \strng{authornamehash}{e17054e48d4eec6b4dffea3c5c4ade10}
+      \strng{authorfullhash}{e17054e48d4eec6b4dffea3c5c4ade10}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Picking Up Momentum}
+      \field{year}{2022}
+    \endentry
+    \entry{pinn_mpc_manipulators}{article}{}
+      \name{author}{4}{}{%
+        {{hash=4687179180a4cf5559519281e15e6434}{%
+           family={Nicodemus},
+           familyi={N\bibinitperiod},
+           given={Jonas},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e03e61af986c075fe9133dae82debb4e}{%
+           family={Kneifl},
+           familyi={K\bibinitperiod},
+           given={Jonas},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d86eb6aab09801791d1f2a47c893db18}{%
+           family={Fehr},
+           familyi={F\bibinitperiod},
+           given={Jörg},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8855e0dc4dc62fd99c6f0c1e40016fe5}{%
+           family={Unger},
+           familyi={U\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{94c239134c0379cd8d79943b3062851b}
+      \strng{fullhash}{ae833a7da48e827333dec5b909fb8575}
+      \strng{bibnamehash}{94c239134c0379cd8d79943b3062851b}
+      \strng{authorbibnamehash}{94c239134c0379cd8d79943b3062851b}
+      \strng{authornamehash}{94c239134c0379cd8d79943b3062851b}
+      \strng{authorfullhash}{ae833a7da48e827333dec5b909fb8575}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We discuss nonlinear model predictive control (MPC) for multi-body dynamics via physics-informed machine learning methods. In more detail, we use a physics-informed neural networks (PINNs)-based MPC to solve a tracking problem for a complex mechanical system, a multi-link manipulator. PINNs are a promising tool to approximate (partial) differential equations but are not suited for control tasks in their original form since they are not designed to handle variable control actions or variable initial values. We thus follow the strategy of Antonelo et al. (arXiv:2104.02556, 2021) by enhancing PINNs with adding control actions and initial conditions as additional network inputs. Subsequently, the high-dimensional input space is reduced via a sampling strategy and a zero-hold assumption. This strategy enables the controller design based on a PINN as an approximation of the underlying system dynamics. The additional benefit is that the sensitivities are easily computed via automatic differentiation, thus leading to efficient gradient-based algorithms for the underlying optimal control problem.}
+      \field{issn}{2405-8963}
+      \field{journaltitle}{IFAC-PapersOnLine}
+      \field{note}{10th Vienna International Conference on Mathematical Modelling MATHMOD 2022}
+      \field{number}{20}
+      \field{title}{Physics-informed Neural Networks-based Model Predictive Control for Multi-link Manipulators}
+      \field{volume}{55}
+      \field{year}{2022}
+      \field{pages}{331\bibrangedash 336}
+      \range{pages}{6}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.ifacol.2022.09.117
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S2405896322013118
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S2405896322013118
+      \endverb
+      \keyw{Physics-informed Machine Learning,Model Predictive Control,Surrogate Model,Mechanical System,Real-time Control}
+    \endentry
     \entry{Illinois_motion}{book}{}
       \name{author}{1}{}{%
         {{hash=2ea8f995e9e39a336c9e3e3d5aae1750}{%
@@ -279,6 +486,42 @@
       \field{labeltitlesource}{title}
       \field{title}{Robotic Systems}
       \field{year}{2023}
+    \endentry
+    \entry{pinns_mpc}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=8f7dbc3230b6c9c980e6bc28604b202a}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Jingyue},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d0cf27b72b205b9cf7de744458ad56d4}{%
+           family={Borja},
+           familyi={B\bibinitperiod},
+           given={Pablo},
+           giveni={P\bibinitperiod}}}%
+        {{hash=2ebd7130f46d8487e8b74b6971b3e2cf}{%
+           family={Santina},
+           familyi={S\bibinitperiod},
+           given={Cosimo\bibnamedelima Della},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{99eb7bd5cbd9705b7df5d89323313b03}
+      \strng{fullhash}{99eb7bd5cbd9705b7df5d89323313b03}
+      \strng{bibnamehash}{99eb7bd5cbd9705b7df5d89323313b03}
+      \strng{authorbibnamehash}{99eb7bd5cbd9705b7df5d89323313b03}
+      \strng{authornamehash}{99eb7bd5cbd9705b7df5d89323313b03}
+      \strng{authorfullhash}{99eb7bd5cbd9705b7df5d89323313b03}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.RO}
+      \field{eprinttype}{arXiv}
+      \field{title}{Physics-informed Neural Networks to Model and Control Robots: a Theoretical and Experimental Investigation}
+      \field{year}{2023}
+      \verb{eprint}
+      \verb 2305.05375
+      \endverb
     \endentry
     \entry{manipulation}{book}{}
       \name{author}{1}{}{%
@@ -310,10 +553,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{2}
-  \missing{3}
-  \missing{4}
-  \missing{5}
 \endrefsection
 \endinput
 
